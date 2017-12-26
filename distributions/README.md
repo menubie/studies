@@ -2,22 +2,28 @@
 
 ## Variável Aleatória
 
-A Variável Aleatória é uma função que, dado um Evento (altura das pessoas), irá mapear para cada item de um Espaço Amostral (conjunto de pessoas) diferentes Valores Numéricos (1.92m, 1.71m, etc...).
+A Variável Aleatória é uma função que, dado um Evento (altura das pessoas) que ocorre em certo Espaço Amostral (conjunto de pessoas) irá mapear para cada elemento (pessoa) diferentes Valores Numéricos (1.92m, 1.71m, etc...).
 
-Em outras palavras, sabendo que a altura das pessoas é representada por X, o conjunto de pessoas é representado por Ω (ômega maiúsculo) e uma pessoa específica é representada por ω (ômega minúsculo), uma variável aleatória pode ser entendida por: X(ω) → R.
+Em outras palavras, sabendo que:
+	
+* A altura das pessoas pode ser representada por X, 
+* O conjunto de pessoas é representado por Ω (ômega maiúsculo) 
+* E uma pessoa específica é representada por ω (ômega minúsculo)
+
+Uma Variável Aleatória pode ser entendida por: X(ω) → R.
 
 A Variável Aleatória pode ser:
-1. Discreta 
-	1. Os valores numéricos que podem ser assumidos são enumeráveis;
-	1. Exemplo: Quantidade de casas em um determinado bairro.
-1. Contínua 
-	1. Os valores numéricos que podem ser assumidos não são enumeráveis;
-	1. Exemplo: O valor do financiamente de uma casa;
+1. Discreta
+	* Os valores numéricos que são assumidos são enumeráveis;
+	* Onde X é a quantidade de propriedades por bairro em São Paulo.
+1. Contínua
+	* Os valores numéricos que são assumidos não são enumeráveis;
+	* Onde x é o valor de financiamento das propriedades de São Paulo.
 1. Mista	
 
-## Função Densidade de Probabilidade (FDP) 
+## Função Densidade
 
-Também conhecida como _Probability Density Functions_ (PDF)
+Também conhecida como **Função Densidade de Probabilidade** (FDP) ou **Probability Density Functions** (PDF).
 
 Dado uma Variável Aleatória Contínua:
 
@@ -29,13 +35,17 @@ A principal diferença entre uma FDP e um Histograma é que o último se encarre
 	
 Conseguimos obter a FDP derivando uma Função Distribuição Acumulada.
 
-## Função Distribuição Acumulada
+## Função Distribuição
 
-## Função Massa de Probabilidade
+Também conhecidad como **Função Distribuição Acumulada** (FDA)
 
-Também conhecida como _Probability Mass Function_ (PMF).
+## Função de Probabilidade
+
+Também conhecida como **Função Massa de Probabilidade** (FMP) ou **Probability Mass Function** (PMF).
 
 Conceito muito similar ao da Função Densidade de Probabilidade, com a diferença de que a FDP trata apenas as variáveis aleatórias contínuas. Para sabermos a probabilidade de um intervalo na PDF, é necessário integrar a área do gráfico que contém o intervalo. Para a PMF isso não seria necessário.
+
+## Exemplos
 
 ## Referências
 
