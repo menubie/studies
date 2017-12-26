@@ -37,7 +37,7 @@ Conseguimos obter a FDP derivando uma Função Distribuição Acumulada.
 
 ## Função Distribuição
 
-Também conhecidad como **Função Distribuição Acumulada** (FDA)
+Também conhecida como **Função Distribuição Acumulada** (FDA)
 
 ## Função de Probabilidade
 
@@ -45,7 +45,9 @@ Também conhecida como **Função Massa de Probabilidade** (FMP) ou **Probabilit
 
 Conceito muito similar ao da Função Densidade de Probabilidade, com a diferença de que a FDP trata apenas as variáveis aleatórias contínuas. Para sabermos a probabilidade de um intervalo na PDF, é necessário integrar a área do gráfico que contém o intervalo. Para a PMF isso não seria necessário.
 
-## Exemplos
+## Exercícios
+
+Para exercícios práticos, clique **[aqui](distribuitions_exercises.ipynb)**.
 
 ## Referências
 
