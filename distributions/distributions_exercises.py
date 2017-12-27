@@ -1,19 +1,19 @@
 
 # coding: utf-8
 
-# In[28]:
+# In[2]:
 
 
 get_ipython().magic('matplotlib inline')
 
 
-# In[7]:
+# In[3]:
 
 
 import pandas as pd
 
 
-# In[8]:
+# In[4]:
 
 
 OUTPUT = "./datasets/"
@@ -36,7 +36,7 @@ OUTPUT = "./datasets/"
 # * Stunting – Moderate and severe: Percentage of children aged 0–59 months who are below minus two standard deviations from median height-for-age of the WHO Child Growth Standards.
 # * Underweight – Moderate and severe: Percentage of children aged 0–59 months who are below minus two standard deviations from median weight-for-age of the World Health Organization (WHO) Child Growth Standards
 
-# In[9]:
+# In[5]:
 
 
 d1 = pd.read_csv(OUTPUT+'dataset1_joint_child_malnutrition_estimates.csv')
@@ -46,7 +46,7 @@ d1c = d1[['Region', 'Country and areas', 'Year', 'Severe wasting',      'Wasting
 d1c.sort_values(by=['Region', 'Country and areas', 'Year'], inplace=True)
 
 
-# In[77]:
+# In[6]:
 
 
 d1c[(d1c.Year == 2000)].groupby(['Region'])["Severe wasting"].count()
@@ -55,32 +55,46 @@ d1c[(d1c.Year == 2000)].groupby(['Region'])["Severe wasting"].count()
 # Answer after analyze the figures below
 # 1. Looking to Density Chart, which curve represents the worst region in terms of Severe Wasting? How to calculate this?
 # 1. What is the probability of a country in Africa and Asia be under 1% of Severe Wasting?
-# 1. Is the histogram a correct visualization?
+# 1. Is the Histogram a visualization good to understand the behavior?
+# 1. What is the difference between `stats.uniform.pdf` and `stats.uniform.cdf`
 
-# In[79]:
+# In[7]:
 
 
 d1c[(d1c.Region.isin(['AFRICA', 'ASIA']))&(d1c.Year == 2000)][['Severe wasting', 'Region']]                        .groupby('Region').boxplot(figsize=(10,10))
 
 
-# In[80]:
+# In[24]:
 
 
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots(figsize=(20,10))
 
-bp = d1c[(d1c.Region.isin(['AFRICA', 'ASIA']))&(d1c.Year == 2000)]                    .groupby('Region')['Severe wasting']                    .plot.density(legend=True, title='Density - Severe Wasting in Africa, Europe and Latin America in years 2000')
+bp = d1c[(d1c.Region.isin(['AFRICA', 'ASIA']))&(d1c.Year == 2000)]                    .groupby('Region')['Severe wasting']                    .plot.density(legend=True, linewidth=5, 
+                                  title='Density - Severe Wasting in Africa and Asia in years 2000')
 
 
-# In[82]:
+# In[22]:
+
+
+import matplotlib.pyplot as plt3
+
+fig3, ax3 = plt.subplots(figsize=(20,10))
+
+bp3 = d1c[(d1c.Region.isin(['AFRICA', 'ASIA']))&(d1c.Year == 2000)]                    .groupby('Region')['Severe wasting']                    .plot.hist(cumulative=True, legend=True, normed=True, alpha=0.7,
+                                  title='Cumulative Distribution Function - Severe Wasting in Africa and Asia in years 2000')
+
+
+# In[25]:
 
 
 import matplotlib.pyplot as plt2
 
 fig2, ax2 = plt2.subplots(figsize=(20,10))
 
-bp = d1c[(d1c.Region.isin(['AFRICA', 'ASIA']))&(d1c.Year == 2000)]                    .groupby('Region')['Severe wasting']                    .plot.hist(legend=True, title='Histogram - Severe Wasting in Africa, Europe and Latin America in years 2000')
+bp = d1c[(d1c.Region.isin(['AFRICA', 'ASIA']))&(d1c.Year == 2000)]                    .groupby('Region')['Severe wasting']                    .plot.hist(legend=True, normed=True, alpha=0.7,
+                               title='Histogram - Severe Wasting in Africa and Asia in years 2000')
 
 
 # In[ ]:
