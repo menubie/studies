@@ -54,4 +54,4 @@ Para exercícios práticos, clique **[aqui](./distribuitions_exercises.ipynb)**.
 * https://en.wikipedia.org/wiki/Random_variable
 * https://en.wikipedia.org/wiki/Exponential_distribution
 * https://en.wikipedia.org/wiki/Probability_mass_function
-
+* http://hamelg.blogspot.com.br/2015/11/python-for-data-analysis-part-22.html
