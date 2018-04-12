@@ -44,7 +44,7 @@ d1c.sort_values(by=['Region', 'Country and areas', 'Year'], inplace=True)
 d1c[(d1c.Year == 2000)].groupby(['Region'])["Severe wasting"].count()
 
 
-# In[18]:
+# In[5]:
 
 
 d1c[(d1c.Region.isin(['AFRICA', 'ASIA']))&(d1c.Year == 2000)][['Severe wasting', 'Region', 'Country and areas']]    .sort_values(by='Severe wasting', ascending=False).head()
@@ -54,23 +54,10 @@ d1c[(d1c.Region.isin(['AFRICA', 'ASIA']))&(d1c.Year == 2000)][['Severe wasting',
 # 1. Looking to Density Chart, which curve represents the worst region in terms of Severe Wasting? How to calculate this?
 # 1. What is the probability of a country in Africa and Asia be under 1% of Severe Wasting?
 #     * Given an event (Severe Wasting) that occurs in a sample space (Africa and Asia countries) what is the probabilty of an element of this sample (an especific country) be under 1% of Severe Wasting? `P(SevereWasting(Country)) < 0.01`
-# 1. Is the Histogram a visualization good to understand this behavior?
+# 1. Is the Histogram a good visualization to understand this behavior?
 # 1. What is the difference between `stats.uniform.pdf` and `stats.uniform.cdf`
 
-# In[10]:
-
-
-# d1c[(d1c.Region.isin(['AFRICA', 'ASIA']))&(d1c.Year == 2000)][['Severe wasting', 'Region']]\
-#                        .groupby('Region').boxplot(figsize=(10,10))
-
-
-# In[ ]:
-
-
-
-
-
-# In[8]:
+# In[7]:
 
 
 import matplotlib.pyplot as plt
@@ -80,6 +67,22 @@ fig, ax = plt.subplots(figsize=(20,10))
 # when plotting the PDF, you need to specify normed=True in your call to .hist()
 bp = d1c[(d1c.Region.isin(['AFRICA', 'ASIA']))&(d1c.Year == 2000)]                    .groupby('Region')['Severe wasting']                    .plot.density(legend=True, linewidth=5, 
                                   title='Density - Severe Wasting: Countries in Africa and Asia in years 2000')
+
+
+# ### Some estimatives
+# 
+# Some estimatives about the probability of a country be under 1% in terms of Severe wasting.
+
+# In[61]:
+
+
+((d1c[(d1c.Region.isin(['AFRICA']))&(d1c.Year == 2000)]['Severe wasting'] <= 1).value_counts()).loc[True]/((d1c[(d1c.Region.isin(['AFRICA']))&(d1c.Year == 2000)]['Severe wasting'] <= 1).value_counts()).loc[False]*100
+
+
+# In[67]:
+
+
+((d1c[(d1c.Region.isin(['ASIA']))&(d1c.Year == 2000)]['Severe wasting'] <= 1).value_counts()).loc[True]/((d1c[(d1c.Region.isin(['ASIA']))&(d1c.Year == 2000)]['Severe wasting'] <= 1).value_counts()).loc[False]*100
 
 
 # In[7]:
